@@ -6,6 +6,7 @@ import cors from "cors"
 import User from "./models/user.model.js";
 import fs from "fs"
 import path from "path";
+import job from "./lib/corn.js";
 dotenv.config()
 const app=express();
 const PORT = process.env.PORT
@@ -28,5 +29,9 @@ if(fs.existsSync(publicDir)){
 }
 app.listen(PORT,()=>{
     connectDB();
-    console.log(`app is running on port ${PORT}`)
+    console.log(`app is running on port ${PORT}`);
+   
+   if(process.env.NODE_ENV==="production"){
+job.start();
+   } 
 });
