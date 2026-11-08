@@ -6,7 +6,7 @@ import cors from "cors"
 import User from "./models/user.model.js";
 import fs from "fs"
 import path from "path";
-import job from "./lib/corn.js";
+import job from "./lib/cron.js";
 dotenv.config()
 const app=express();
 const PORT = process.env.PORT
